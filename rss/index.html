@@ -1,0 +1,23 @@
+<html>
+	<head>
+		<script src="/socket.io/socket.io.js"></script>
+		<script type="text/javascript">
+			socket = io.connect();
+			socket.on('rssStump',function(data){
+				var newResult = "<div class='result' >"
+				+ "<div>Title: " + data.title + "</div>"
+				+ "<div>Date: " + data.date + "</div>"
+				+ "<div>Description: " + data.text + "</div>"
+				+ "<div><a href='" + data.link + "'>Klick Me</a> </div>"
+				+ "</div>";
+				document.getElementById("RSSFeed").innerHTML += newResult;
+			});
+		</script>
+		<title>RSS Feed</title>
+	</head>
+	<body>
+		<h1>Sample RSS feed page</h1>
+		<p>Rss Feed:</p>
+		<div id="RSSFeed"></div>
+	</body>
+</html>
